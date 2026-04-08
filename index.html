@@ -518,6 +518,7 @@
   <nav>
     <ul class="nav-links">
       <li><a href="#experience">경력</a></li>
+      <li><a href="#research">연구 경험</a></li>
       <li><a href="#publications">연구 성과</a></li>
       <li><a href="#education">학력 및 수상</a></li>
       <li><a href="#skills">기술 스택</a></li>
@@ -560,7 +561,10 @@
           </div>
           <div class="project-title">H-Adapter <span class="accordion-indicator">▼</span></div>
           <div class="project-subtitle">Inpainting-Based Hairstyle Transfer via Region-Specific Loss</div>
-          <div class="project-period">SNOW Corp. 연구 인턴 &nbsp;·&nbsp; 2025.10 — 2026.04 (6개월)</div>
+          <div class="project-period">
+            <img src="assets/Logo_SNOW.svg.png" alt="SNOW" style="height:16px; vertical-align:middle; margin-right:6px;">
+            SNOW Corp. 연구 인턴 &nbsp;·&nbsp; 2025.10 — 2026.04 (6개월)
+          </div>
         </div>
 
         <div class="project-body accordion-body">
@@ -606,7 +610,7 @@
           <div class="block">
             <div class="block-title">결과</div>
             <div class="result-figure">
-              <img src="h_adapter.png" alt="H-Adapter 헤어 트랜스퍼 결과">
+              <img src="assets/h_adapter.png" alt="H-Adapter 헤어 트랜스퍼 결과">
               <div class="figure-caption">
                 <strong>Qualitative Results.</strong> Source 인물의 정체성과 기타 시각적 요소를 유지한 채, reference 헤어스타일을 자연스럽게 반영한 결과입니다.
               </div>
@@ -617,7 +621,7 @@
             <div class="block-title">확장성 및 활용</div>
             <p>
               텍스트 기반 헤어 속성 제어를 지원하며, IP-Adapter 기반 구조를 활용해 FaceID Plus와 결합한 설정도 함께 사용할 수 있습니다.
-              또한 Gradio 인터랙티브 데모와 ComfyUI 커스텀 노드로 추론 파이프라인을 배포했습니다.
+              Gradio 인터랙티브 데모, ComfyUI 커스텀 노드, ComfyUI API(HTTP/WebSocket) 클라이언트로 추론 파이프라인을 배포했습니다.
             </p>
           </div>
 
@@ -687,7 +691,7 @@
             <div class="block" style="margin: 20px 0;">
               <div class="block-title">결과</div>
               <div class="result-figure" style="max-width: 600px; margin: 12px auto 8px;">
-                <img src="mindiff.jpg" alt="MINDiff 결과" style="width:100%; height:auto; display:block;">
+                <img src="assets/mindiff.jpg" alt="MINDiff 결과" style="width:100%; height:auto; display:block;">
                 <div class="figure-caption">
                   <strong>Qualitative Results.</strong> subject는 유지하면서, 텍스트 조건이 더 잘 반영되도록 한 결과입니다.
                 </div>
@@ -778,7 +782,7 @@
             <div class="block" style="margin-top:16px;">
               <div class="block-title">결과</div>
               <div class="result-figure narrow">
-                <img src="ksc.png" alt="KSC 2024 결과">
+                <img src="assets/ksc.png" alt="KSC 2024 결과">
                 <div class="figure-caption">
                   <strong>Qualitative Results.</strong> λ 값에 따라 텍스트 프롬프트와 reference 이미지 조건의 반영 정도를 조절한 결과입니다.
                 </div>
@@ -786,6 +790,27 @@
             </div>
           </div>
 
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Research Experience ── -->
+  <div class="section-wrap" id="research">
+    <div class="container">
+      <div class="section-label">Research Experience</div>
+      <div class="section-title">연구 경험</div>
+
+      <div class="pub-card">
+        <div class="pub-year">2023</div>
+        <div class="pub-body">
+          <span class="pub-venue">UNIST</span>
+          <div class="pub-title">Text-to-Image Personalization 통합 프레임워크</div>
+          <div class="pub-desc" style="margin-top:4px;">
+            울산과학기술원 · 지도교수: 유재준 · 2023.11 — 2023.12<br><br>
+            Textual Inversion, Custom Diffusion, ProFusion 등 다수의 personalization 모델을 단일 인터페이스에서 학습·추론·평가할 수 있는 통합 프레임워크를 설계하고 구현했습니다.
+          </div>
         </div>
       </div>
 
