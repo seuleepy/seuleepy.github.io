@@ -445,6 +445,42 @@
 
     .skills-value { color: var(--muted); }
 
+    /* ── Accordion ── */
+    .accordion-toggle {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .accordion-toggle:hover .pub-title,
+    .accordion-toggle:hover .project-title {
+      color: var(--accent);
+    }
+
+    .accordion-indicator {
+      display: inline-block;
+      font-size: 9pt;
+      color: var(--accent);
+      margin-left: 8px;
+      transition: transform 0.25s ease;
+      vertical-align: middle;
+    }
+
+    .accordion-indicator.open {
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.25s ease;
+    }
+
+    .accordion-body.open {
+      max-height: 2000px;
+      opacity: 1;
+    }
+
     /* ── Footer ── */
     footer {
       text-align: center;
@@ -492,10 +528,10 @@
   <!-- ── Hero ── -->
   <div class="hero">
     <div class="hero-inner">
-      <div class="hero-tag">생성 AI 연구자</div>
+      <div class="hero-tag">Generative AI Researcher</div>
       <h1>정슬기<span>.</span></h1>
       <p class="hero-desc">
-        Diffusion Model 기반 이미지 생성 및 개인화 연구를 수행합니다.
+        Diffusion Model 기반 이미지 생성 및 편집 연구를 수행합니다.
         물리학과 컴퓨터공학의 융합적 배경을 바탕으로, 네이버 SNOW에서
         얼굴 동일성 보존 헤어스타일 트랜스퍼 모델(H-Adapter)을 단독 설계·구현했습니다.
       </p>
@@ -503,6 +539,7 @@
         <span>wjdtmfrl3682@gmail.com</span>
         <span>010-6522-3682</span>
         <a href="https://github.com/seuleepy" target="_blank">github.com/seuleepy</a>
+        <a href="https://www.linkedin.com/in/seulgi-jeong-790692342" target="_blank">linkedin.com/in/seulgi-jeong-790692342</a>
       </div>
     </div>
   </div>
@@ -514,19 +551,19 @@
       <div class="section-title">경력</div>
 
       <div class="project-card">
-        <div class="project-header">
+        <div class="project-header accordion-toggle" onclick="toggleAccordion(this)">
           <div class="project-tags">
             <span class="tag tag-dark">ECCV 2026 Under Review</span>
             <span class="tag">Diffusion Model</span>
             <span class="tag">IP-Adapter</span>
             <span class="tag">Hair Transfer</span>
           </div>
-          <div class="project-title">H-Adapter</div>
+          <div class="project-title">H-Adapter <span class="accordion-indicator">▼</span></div>
           <div class="project-subtitle">Identity-Preserving Hairstyle Transfer via Region-Specific Diffusion</div>
           <div class="project-period">네이버 SNOW 연구 인턴 &nbsp;·&nbsp; 2025.10 — 2026.04 (6개월) &nbsp;·&nbsp; 단독 설계·구현</div>
         </div>
 
-        <div class="project-body">
+        <div class="project-body accordion-body">
 
           <div class="block">
             <div class="block-title">문제 정의</div>
@@ -566,11 +603,11 @@
                 </p>
               </div>
               <div class="approach-item">
-                <div class="approach-item-title">평가 파이프라인</div>
+                <div class="approach-item-title">평가 파이프라인 & 배포</div>
                 <p>
-                  CelebAMask-HQ 30K 이미지 기반 6단계 평가 파이프라인을
-                  직접 구현했습니다. FID, SSIM, PSNR, CLIP-I, Identity
-                  메트릭으로 5개 baseline과 정량 비교합니다.
+                  CelebAMask-HQ 30K 이미지 기반 6단계 평가 파이프라인 구현.
+                  FID, SSIM, PSNR, CLIP-I, Identity 메트릭으로 5개 baseline과
+                  정량 비교. ComfyUI 커스텀 노드로 Two-Pass 추론 파이프라인 배포.
                 </p>
               </div>
             </div>
@@ -612,19 +649,40 @@
       <div class="pub-card">
         <div class="pub-year">2025</div>
         <div class="pub-body">
-          <span class="pub-venue">IEEE 게재</span>
-          <div class="pub-title">
-            <a href="https://ieeexplore.ieee.org/document/11374429" target="_blank">
+          <span class="pub-venue">ICCV 2025 Workshop</span>
+          <div class="pub-title accordion-toggle" onclick="toggleAccordion(this)" style="cursor:pointer;">
+            <a href="https://ieeexplore.ieee.org/document/11374429" target="_blank" onclick="event.stopPropagation()">
               MINDiff: Mask-Integrated Negative Attention for Controlling Overfitting in Text-to-Image Personalization
             </a>
+            <span class="accordion-indicator">▼</span>
           </div>
-          <div class="pub-desc">
-            텍스트-이미지 개인화 모델(Dreambooth 계열)에서 발생하는 과적합 문제를 해결하기 위해
-            마스크 기반 Negative Attention 기법을 제안합니다. 추가 학습 없이 추론 시점에서 바로 적용 가능하며,
-            사용자의 텍스트 의도와 레퍼런스 객체 특징을 효과적으로 분리·결합합니다.
+          <div class="accordion-body">
+            <div class="pub-desc" style="margin-top:10px;">
+              텍스트-이미지 개인화 모델(Dreambooth 계열)에서 발생하는 과적합 문제를 해결하기 위해
+              마스크 기반 Negative Attention 기법을 제안합니다. 추가 학습 없이 추론 시점에서 바로 적용 가능하며,
+              사용자의 텍스트 의도와 레퍼런스 객체 특징을 효과적으로 분리·결합합니다.
+            </div>
+            <div class="pub-figure">
+              <img src="mindiff_result-min.jpg" alt="MINDiff 결과">
+            </div>
           </div>
-          <div class="pub-figure">
-            <img src="mindiff_result-min.jpg" alt="MINDiff 결과">
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-year">2025</div>
+        <div class="pub-body">
+          <span class="pub-venue">학위논문</span>
+          <div class="pub-title accordion-toggle" onclick="toggleAccordion(this)" style="cursor:pointer;">
+            <a href="https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=c3c476015ccedd15ffe0bdc3ef48d419&keyword=Controlling%20Overfitting%20in%20Text-to-Image%20Personalization%20for%20Diffusion%20Models" target="_blank" style="color:var(--text); text-decoration:none;" onclick="event.stopPropagation()">Controlling Overfitting in Text-to-Image Personalization for Diffusion Models</a>
+            <span class="accordion-indicator">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="pub-desc" style="margin-top:10px;">경북대학교 컴퓨터학부 석사학위논문<br><br>
+              텍스트-이미지 개인화(Text-to-Image Personalization) 과정에서 소수의 레퍼런스 이미지로 인해 발생하는 과적합 문제를 연구했습니다.
+              크로스 어텐션에 마스크 기반 Negative Attention을 도입한 MINDiff를 제안하여, 별도 재학습 없이 추론 단계에서 바로 적용 가능한 방식으로 과적합을 완화했습니다.
+              추가로 IP-Adapter에서 나타나는 약한 과적합(weak overfitting) 현상을 정의하고, 생성 단계(timestep)에 따라 어텐션 가중치를 동적으로 조절하는 기법(Dynamic Adjustment)을 제안해 텍스트 기반 창의적 이미지 생성 능력을 회복했습니다.
+            </div>
           </div>
         </div>
       </div>
@@ -633,15 +691,29 @@
         <div class="pub-year">2024</div>
         <div class="pub-body">
           <span class="pub-venue">KSC 2024</span>
-          <div class="pub-title">텍스트와 이미지 조건의 동적 조절을 통한 맞춤형 이미지 생성 연구</div>
-          <div class="pub-desc">
-            IP-Adapter에서 발생하는 텍스트·이미지 조건 간 간섭(entanglement) 문제를
-            추론 time step에 따라 각 조건의 가중치를 동적으로 조절하는 방식으로 해결합니다.
-            아키텍처 수정 없이 추론 단계에서 바로 적용 가능하여 높은 범용성을 가집니다.
+          <div class="pub-title accordion-toggle" onclick="toggleAccordion(this)" style="cursor:pointer;">
+            <a href="https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE12041769" target="_blank" style="color:var(--text); text-decoration:none;" onclick="event.stopPropagation()">텍스트와 이미지 조건의 동적 조절을 통한 맞춤형 이미지 생성 연구</a>
+            <span class="accordion-indicator">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="pub-desc" style="margin-top:10px;">
+              IP-Adapter에서 발생하는 텍스트·이미지 조건 간 간섭(entanglement) 문제를
+              추론 time step에 따라 각 조건의 가중치를 동적으로 조절하는 방식으로 해결합니다.
+              아키텍처 수정 없이 추론 단계에서 바로 적용 가능하여 높은 범용성을 가집니다.
+            </div>
           </div>
         </div>
       </div>
 
+    </div>
+
+    <div class="pub-card" style="margin-top:16px;">
+      <div class="pub-year">2025</div>
+      <div class="pub-body">
+        <span class="pub-venue">저작권 등록</span>
+        <div class="pub-title">마스크 기반 음의 어텐션 컨트롤을 활용한 이미지 생성</div>
+        <div class="pub-desc">출원번호 C-2025-016279 &nbsp;·&nbsp; 대한민국 &nbsp;·&nbsp; 주발명자 (1/2, 2025.04.29)</div>
+      </div>
     </div>
   </div>
 
@@ -657,6 +729,7 @@
           <div class="meta-row">
             <div>
               <div class="meta-main">경북대학교 컴퓨터학부 석사</div>
+              <div class="meta-sub">Image Processing and Analysis Lab. (지도교수: 김재일)</div>
             </div>
             <div class="meta-date">2023.03 — 2025.08</div>
           </div>
@@ -673,7 +746,7 @@
           <div class="meta-row">
             <div>
               <div class="meta-main">기초과학 학부생 학술대회 장려상</div>
-              <div class="meta-sub">경북대 자연과학대학 · 심층신경망 기반 LHC 암흑물질 탐색</div>
+              <div class="meta-sub">경북대 자연과학대학 · 머신러닝을 활용한 입자물리 데이터 기반 암흑물질 탐색</div>
             </div>
             <div class="meta-date">2023.01</div>
           </div>
@@ -704,7 +777,7 @@
       <div class="skills-block">
         <div class="skills-row">
           <span class="skills-label">생성 모델</span>
-          <span class="skills-value">Stable Diffusion 1.5, FLUX, IP-Adapter, ControlNet, HuggingFace Diffusers</span>
+          <span class="skills-value">Stable Diffusion 1.5, IP-Adapter, HuggingFace Diffusers</span>
         </div>
         <div class="skills-row">
           <span class="skills-label">프레임워크</span>
@@ -712,7 +785,7 @@
         </div>
         <div class="skills-row">
           <span class="skills-label">언어·도구</span>
-          <span class="skills-value">Python, CUDA, Linux, Git, Docker</span>
+          <span class="skills-value">Python, CUDA, Linux, Git, Docker, ComfyUI</span>
         </div>
         <div class="skills-row">
           <span class="skills-label">어학</span>
@@ -726,5 +799,14 @@
     &copy; 2026 정슬기 &nbsp;·&nbsp; wjdtmfrl3682@gmail.com
   </footer>
 
+<script>
+  function toggleAccordion(trigger) {
+    const body = trigger.nextElementSibling;
+    const indicator = trigger.querySelector('.accordion-indicator');
+    if (!body) return;
+    body.classList.toggle('open');
+    if (indicator) indicator.classList.toggle('open');
+  }
+</script>
 </body>
 </html>
