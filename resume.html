@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정슬기 이력서</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent: #3B5BDB;
+      --accent-light: #EEF2FF;
+      --text: #1e1e2e;
+      --muted: #52525b;
+      --subtle: #8b8b9e;
+      --border: #e4e4e7;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 9pt;
+      color: var(--text);
+      background: #f4f4f5;
+      line-height: 1.65;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 14mm 16mm 12mm;
+      margin: 20px auto;
+      background: #fff;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 14px;
+    }
+
+    header h1 {
+      font-size: 24pt;
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.1;
+    }
+
+    header .subtitle {
+      font-size: 9pt;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 3px;
+    }
+
+    header .contacts {
+      text-align: right;
+      font-size: 8pt;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    header .contacts a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── Section ── */
+    section { margin-bottom: 13px; }
+
+    section h2 {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3px;
+      margin-bottom: 9px;
+    }
+
+    /* ── Entry ── */
+    .entry {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 9px;
+    }
+
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-body { flex: 1; }
+
+    .entry-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .entry-sub {
+      font-size: 8.5pt;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .entry-date {
+      font-size: 8pt;
+      color: var(--subtle);
+      white-space: nowrap;
+      padding-top: 1px;
+    }
+
+    ul {
+      padding-left: 13px;
+      margin-top: 3px;
+    }
+
+    ul li {
+      font-size: 8.5pt;
+      color: var(--muted);
+      margin-bottom: 1.5px;
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      row-gap: 4px;
+      column-gap: 10px;
+      font-size: 8.5pt;
+    }
+
+    .skills-grid .label {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .skills-grid .value {
+      color: var(--muted);
+    }
+
+    /* ── Two-col layout for bottom sections ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 20px;
+    }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 7pt;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 8px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: white; font-size: 8.8pt; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        padding: 12mm 14mm 10mm;
+        width: 210mm;
+        min-height: 297mm;
+      }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>정슬기</h1>
+      <div class="subtitle">생성 AI 연구자 &nbsp;·&nbsp; Diffusion Model / Image Personalization</div>
+    </div>
+    <div class="contacts">
+      wjdtmfrl3682@gmail.com<br>
+      010-6522-3682<br>
+      <a href="https://github.com/seuleepy">github.com/seuleepy</a>
+    </div>
+  </header>
+
+  <!-- 경력 -->
+  <section>
+    <h2>경력</h2>
+    <div class="entry">
+      <div class="entry-body">
+        <div class="entry-title">연구 인턴 &mdash; 네이버 SNOW</div>
+        <div class="entry-sub">H-Adapter: Identity-Preserving Hairstyle Transfer via Diffusion Model</div>
+        <ul>
+          <li>헤어·비헤어 영역에 차등 손실 가중치를 적용하는 <strong>Region-Specific Loss</strong> 설계 — 얼굴 동일성 보존과 헤어 스타일 학습을 동시에 달성</li>
+          <li>P2P(Prompt-to-Prompt) Attention 기반 <strong>Two-Pass Inference</strong> 구현 — 별도 마스크 입력 없이 헤어 영역 자동 추출</li>
+          <li>SD 1.5 + IP-Adapter 기반 학습·추론·평가 전체 파이프라인 단독 설계 및 구현</li>
+          <li>ECCV 2026 제출 중 <span class="badge">Under Review</span></li>
+        </ul>
+      </div>
+      <div class="entry-date">2025.10 — 2026.04</div>
+    </div>
+  </section>
+
+  <!-- 논문 및 발표 -->
+  <section>
+    <h2>논문 및 발표</h2>
+    <div class="entry">
+      <div class="entry-body">
+        <div class="entry-title">MINDiff: Mask-Integrated Negative Attention for Controlling Overfitting in Text-to-Image Personalization</div>
+        <div class="entry-sub">IEEE 게재 &nbsp;·&nbsp; ieeexplore.ieee.org/document/11374429</div>
+        <ul>
+          <li>텍스트-이미지 개인화(Dreambooth 계열) 모델의 과적합을 마스크 기반 Negative Attention으로 제어, 추가 학습 불필요</li>
+        </ul>
+      </div>
+      <div class="entry-date">2025</div>
+    </div>
+    <div class="entry">
+      <div class="entry-body">
+        <div class="entry-title">텍스트와 이미지 조건의 동적 조절을 통한 맞춤형 이미지 생성 연구</div>
+        <div class="entry-sub">KSC 2024 (한국소프트웨어종합학술대회)</div>
+        <ul>
+          <li>IP-Adapter의 텍스트·이미지 조건 간섭 문제를 추론 time step별 동적 가중치 조절로 해결</li>
+        </ul>
+      </div>
+      <div class="entry-date">2024</div>
+    </div>
+  </section>
+
+  <!-- 기술 스택 -->
+  <section>
+    <h2>기술 스택</h2>
+    <div class="skills-grid">
+      <span class="label">생성 모델</span>
+      <span class="value">Stable Diffusion 1.5, FLUX, IP-Adapter, ControlNet, HuggingFace Diffusers</span>
+      <span class="label">프레임워크</span>
+      <span class="value">PyTorch, Accelerate, CLIP, InsightFace, Transformers</span>
+      <span class="label">언어·도구</span>
+      <span class="value">Python, CUDA, Linux, Git, Docker</span>
+    </div>
+  </section>
+
+  <!-- 학력 + 수상 -->
+  <div class="two-col">
+    <section>
+      <h2>학력</h2>
+      <div class="entry">
+        <div class="entry-body">
+          <div class="entry-title">경북대학교 컴퓨터학부 석사</div>
+        </div>
+        <div class="entry-date">2023.03 — 2025.08</div>
+      </div>
+      <div class="entry">
+        <div class="entry-body">
+          <div class="entry-title">경북대학교 물리학과 학사</div>
+        </div>
+        <div class="entry-date">2019.03 — 2023.02</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>수상 및 활동</h2>
+      <div class="entry">
+        <div class="entry-body">
+          <div class="entry-title">기초과학 학부생 학술대회 장려상</div>
+          <div style="font-size:8pt; color:var(--muted);">경북대 자연과학대학 · LHC 암흑물질 탐색</div>
+        </div>
+        <div class="entry-date">2023.01</div>
+      </div>
+      <div class="entry">
+        <div class="entry-body">
+          <div class="entry-title">토익스피킹 IH</div>
+        </div>
+        <div class="entry-date"></div>
+      </div>
+    </section>
+  </div>
+
+</div>
+</body>
+</html>
